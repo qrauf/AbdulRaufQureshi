@@ -132,6 +132,23 @@ p { margin: 0 0 1em; }
   background: var(--bg-alt); border: 2px solid var(--accent);
 }
 .timeline > li:first-child .what::before { background: var(--accent); }
+/* Organization logos: always on a white tile so dark marks stay visible in dark mode */
+.logo {
+  flex: none; width: 56px; height: 56px; border-radius: 12px;
+  background: #fff; border: 1px solid var(--border);
+  display: grid; place-items: center; padding: 7px; overflow: hidden;
+}
+.logo img { max-width: 100%; max-height: 100%; object-fit: contain; }
+.logo.initials { background: var(--accent-soft); color: var(--accent); font-weight: 800; font-size: .95rem; letter-spacing: .02em; }
+.job-head { display: flex; gap: 14px; align-items: center; margin-bottom: 10px; }
+.job-head .logo { width: 124px; padding: 8px 10px; }
+.job-head .logo img { max-height: 38px; }
+@media (max-width: 640px) { .job-head .logo { width: 88px; height: 48px; } }
+.job-head .org { margin-bottom: 0; }
+.card-logo {
+  display: block; height: 52px; max-width: 170px; object-fit: contain; object-position: left center;
+  background: #fff; border-radius: 10px; padding: 8px 12px; margin-bottom: 14px; box-sizing: content-box;
+}
 .what h3 { font-size: 1.15rem; font-weight: 700; }
 .org { color: var(--accent); font-weight: 500; font-size: .95rem; margin: 4px 0 10px; }
 .what ul { margin: 0; padding-left: 18px; color: var(--muted); }
@@ -178,9 +195,11 @@ p { margin: 0 0 1em; }
 /* Education / certs */
 .cols { display: grid; grid-template-columns: 1fr 1fr; gap: 48px; }
 .list { list-style: none; margin: 0; padding: 0; }
-.list li { padding: 14px 0; border-bottom: 1px solid var(--border); display: flex; flex-direction: column; }
+.list li { padding: 14px 0; border-bottom: 1px solid var(--border); display: flex; gap: 14px; align-items: center; }
 .list li:first-child { padding-top: 0; }
-.list span { color: var(--muted); font-size: .92rem; }
+.list li > div { display: flex; flex-direction: column; }
+.list .logo { width: 48px; height: 48px; padding: 6px; }
+.list span:not(.logo) { color: var(--muted); font-size: .92rem; }
 
 /* Contact */
 .contact { background: var(--accent-soft); text-align: center; }
@@ -217,7 +236,8 @@ p { margin: 0 0 1em; }
     --border: #ccc; --accent: #000; --accent-soft: #fff; --shadow: none;
   }
   body { font-family: Arial, Helvetica, sans-serif; font-size: 10.5pt; line-height: 1.4; }
-  .nav, .hero-photo, .hero-actions, .stats, .footer, .contact, .eyebrow { display: none !important; }
+  .nav, .hero-photo, .hero-actions, .stats, .footer, .contact, .eyebrow, .logo, .card-logo { display: none !important; }
+  .job-head { display: block; margin: 0; }
   .cols > div { break-inside: avoid; }
   .cols > div + div { margin-top: 12pt; }
   .container { max-width: none; padding: 0; }
