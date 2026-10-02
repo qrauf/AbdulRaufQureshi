@@ -80,6 +80,16 @@ p { margin: 0 0 1em; }
   color: var(--accent); font-weight: 600; letter-spacing: .04em;
   text-transform: uppercase; font-size: .8rem; margin-bottom: 16px;
 }
+.certs-row { list-style: none; padding: 0; margin-top: 0; display: flex; flex-wrap: wrap; gap: 8px 10px; }
+.certs-row li {
+  display: inline-flex; align-items: center; gap: 8px;
+  background: var(--surface); border: 1px solid var(--border);
+  border-radius: 999px; padding: 4px 12px 4px 4px;
+}
+.certs-row img {
+  width: 24px; height: 24px; object-fit: contain;
+  background: #fff; border-radius: 50%; padding: 2px;
+}
 .hero h1 { font-size: clamp(2.4rem, 6vw, 4rem); font-weight: 800; letter-spacing: -.02em; }
 .role { font-size: clamp(1.05rem, 2.2vw, 1.3rem); font-weight: 600; color: var(--accent); margin: 12px 0 0; }
 .lead { font-size: clamp(1rem, 1.8vw, 1.15rem); color: var(--muted); max-width: 640px; margin: 18px 0 14px; }
