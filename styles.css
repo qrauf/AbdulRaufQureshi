@@ -73,7 +73,7 @@ p { margin: 0 0 1em; }
 .hero-top { display: grid; grid-template-columns: 1fr auto; gap: 48px; align-items: center; }
 .hero-photo {
   width: 300px; height: 300px; object-fit: cover; object-position: 50% 15%;
-  border-radius: 50%; border: 6px solid var(--surface);
+  border-radius: 50%; border: 6px solid #fff; background: #fff;
   box-shadow: 0 0 0 2px var(--accent), var(--shadow);
 }
 .eyebrow {
