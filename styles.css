@@ -310,7 +310,7 @@ p { margin: 0 0 1em; }
   .event-side-photo img { height: 340px; min-height: 0; }
   .event-date { width: auto; display: inline-flex; gap: 6px; align-items: baseline; justify-self: start; padding: 6px 12px; }
   .event-date span { display: inline; font-size: 1.1rem; }
-  .hero-photo { order: -1; width: 180px; height: 180px; }
+  .hero-photo { order: -1; width: 180px; height: 180px; justify-self: center; }
   .two-col, .cols, .skills-grid { grid-template-columns: 1fr; gap: 16px; }
   .cols { gap: 48px; }
   .timeline > li { grid-template-columns: 1fr; gap: 6px; }
