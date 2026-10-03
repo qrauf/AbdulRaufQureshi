@@ -48,13 +48,16 @@
           <span class="brand-tag">IT Project &amp; Delivery Leader</span>
         </span>
       </a>
-      <nav>
+      <button class="nav-toggle" type="button" aria-expanded="false" aria-controls="site-nav" aria-label="Open menu">
+        <span></span><span></span><span></span>
+      </button>
+      <nav id="site-nav">
         <a href="#summary">Summary</a>
         <a href="#experience">Experience</a>
         <a href="#projects">Projects</a>
         <a href="#skills">Skills</a>
-        <a href="blog.html" class="nav-keep">Blog</a>
-        <a href="events.html" class="nav-keep">Events</a>
+        <a href="blog.html">Blog</a>
+        <a href="events.html">Events</a>
         <a href="#contact" class="nav-cta">Contact</a>
       </nav>
     </div>
@@ -390,5 +393,14 @@
   </footer>
 
   <script>document.getElementById('year').textContent = new Date().getFullYear();</script>
+  <script>
+    (function () {
+      var header = document.querySelector('.nav'), btn = header.querySelector('.nav-toggle');
+      function set(open) { header.classList.toggle('nav-open', open); btn.setAttribute('aria-expanded', open); btn.setAttribute('aria-label', open ? 'Close menu' : 'Open menu'); }
+      btn.addEventListener('click', function () { set(!header.classList.contains('nav-open')); });
+      header.querySelectorAll('#site-nav a').forEach(function (a) { a.addEventListener('click', function () { set(false); }); });
+      document.addEventListener('keydown', function (e) { if (e.key === 'Escape') set(false); });
+    })();
+  </script>
 </body>
 </html>
