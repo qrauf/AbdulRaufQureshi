@@ -53,8 +53,21 @@ p { margin: 0 0 1em; }
   border-bottom: 1px solid var(--border);
 }
 .nav-inner { display: flex; align-items: center; justify-content: space-between; height: 64px; }
-.brand { font-weight: 800; font-size: 1.15rem; color: var(--text); }
-.brand span { color: var(--accent); }
+.brand { display: flex; align-items: center; gap: 12px; color: var(--text); }
+.brand:hover { color: var(--text); }
+.brand-mark {
+  width: 40px; height: 40px; border-radius: 11px; flex: none;
+  box-shadow: 0 4px 12px rgba(15, 139, 141, .28);
+  transition: transform .2s;
+}
+.brand:hover .brand-mark { transform: rotate(-6deg) scale(1.05); }
+.brand-text { display: flex; flex-direction: column; line-height: 1.15; }
+.brand-name { font-weight: 800; font-size: 1.05rem; letter-spacing: -.01em; }
+.brand-name span { font-weight: 500; color: var(--muted); }
+.brand-tag {
+  font-size: .68rem; font-weight: 600; letter-spacing: .08em;
+  text-transform: uppercase; color: var(--accent);
+}
 .nav nav { display: flex; gap: 24px; align-items: center; }
 .nav nav a { color: var(--muted); font-weight: 500; font-size: .95rem; }
 .nav nav a:hover { color: var(--text); }
@@ -235,6 +248,8 @@ p { margin: 0 0 1em; }
 @media (max-width: 640px) {
   .container { padding: 0 16px; }
   .nav nav a:not(.nav-cta) { display: none; }
+  .brand-tag { display: none; }
+  .brand-mark { width: 36px; height: 36px; }
   .hero { padding: 64px 0 48px; }
   .section { padding: 56px 0; }
 }
@@ -295,5 +310,5 @@ p { margin: 0 0 1em; }
 
 @media (prefers-reduced-motion: reduce) {
   html { scroll-behavior: auto; }
-  .card, .btn { transition: none; }
+  .card, .btn, .brand-mark { transition: none; }
 }
