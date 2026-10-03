@@ -462,17 +462,17 @@ p { margin: 0 0 1em; }
 .vc-top { display: flex; justify-content: space-between; align-items: center; gap: 4cqw; }
 .vc-mark { width: 10cqw; height: 10cqw; border-radius: 2.4cqw; box-shadow: 0 0 0 .5cqw rgba(255, 255, 255, .35); }
 .vc-web { font-size: 2.3cqw; letter-spacing: .02em; opacity: .75; }
-.vc-name { font-size: 7.4cqw; font-weight: 800; letter-spacing: -.02em; line-height: 1.1; margin: 0; }
-.vc-title { font-size: 3.6cqw; font-weight: 600; color: #9ff0e6; margin: 1.2cqw 0 0; }
-.vc-sub { font-size: 2.7cqw; opacity: .85; margin: 1cqw 0 0; }
-.vc-certs { list-style: none; margin: 0; padding: 0; display: flex; flex-wrap: wrap; gap: 1.6cqw; }
+.vc-name { font-size: 6.2cqw; white-space: nowrap; font-weight: 800; letter-spacing: -.02em; line-height: 1.1; margin: 0; }
+.vc-title { font-size: 3.3cqw; font-weight: 600; color: #9ff0e6; margin: 1.2cqw 0 0; }
+.vc-sub { font-size: 2.4cqw; white-space: nowrap; opacity: .85; margin: 1cqw 0 0; }
+.vc-certs { list-style: none; margin: 0; padding: 0; display: flex; flex-wrap: nowrap; gap: 1.4cqw; }
 .vc-certs li {
   display: inline-flex; align-items: center; gap: 1.2cqw;
-  font-size: 2.5cqw; font-weight: 700; letter-spacing: .03em;
+  font-size: 2.2cqw; font-weight: 700; letter-spacing: .02em;
   background: rgba(255, 255, 255, .14); border: 1px solid rgba(255, 255, 255, .25);
   border-radius: 999px; padding: .8cqw 2.2cqw .8cqw .8cqw;
 }
-.vc-certs img { width: 4.6cqw; height: 4.6cqw; object-fit: contain; background: #fff; border-radius: 50%; padding: .4cqw; }
+.vc-certs img { width: 4cqw; height: 4cqw; object-fit: contain; background: #fff; border-radius: 50%; padding: .4cqw; }
 
 .vcard-back {
   display: grid; grid-template-columns: 1fr auto; align-items: center; gap: 5cqw;
@@ -502,3 +502,32 @@ p { margin: 0 0 1em; }
   .card-page .vcard { width: 89mm; height: 51mm; aspect-ratio: auto; margin: 0 0 8mm; box-shadow: none; border-radius: 3mm; break-inside: avoid; }
 }
 .card-hero .lead { margin-bottom: 24px; }
+.vc-photo {
+  position: absolute; right: 6%; top: 50%; transform: translateY(-46%);
+  width: 23cqw; height: 23cqw; border-radius: 50%; object-fit: cover; object-position: 50% 15%;
+  background: #fff; border: .9cqw solid rgba(255, 255, 255, .9);
+  box-shadow: 0 1.5cqw 4cqw rgba(0, 0, 0, .25);
+}
+.vc-id, .vc-certs { max-width: 68%; }
+.share-panel {
+  margin-top: 20px; max-width: 520px; padding: 18px; border-radius: var(--radius);
+  background: var(--surface); border: 1px solid var(--border); box-shadow: var(--shadow);
+}
+.share-panel[hidden] { display: none; }
+.share-label { font-weight: 700; margin-bottom: 10px; }
+.share-link { display: flex; gap: 8px; }
+.share-link input {
+  flex: 1; min-width: 0; font: inherit; font-size: .9rem; padding: 10px 12px;
+  border: 1px solid var(--border); border-radius: 10px; background: var(--bg-alt); color: var(--text);
+}
+.share-link .btn { padding: 10px 16px; border: 0; cursor: pointer; font: inherit; font-weight: 600; }
+.share-targets { display: flex; flex-wrap: wrap; gap: 8px; margin-top: 12px; }
+.share-targets a, .share-targets button {
+  padding: 6px 14px; border-radius: 999px; border: 1px solid var(--border);
+  font-size: .9rem; font-weight: 600; color: var(--text); background: var(--bg);
+}
+.share-targets a:hover, .share-targets button:hover { border-color: var(--accent); color: var(--accent); }
+.share-targets button { font: inherit; font-size: .9rem; font-weight: 600; cursor: pointer; }
+.share-targets button[hidden] { display: none; }
+.share-status { margin: 8px 0 0; min-height: 1.2em; font-size: .88rem; color: var(--accent); font-weight: 600; }
+button.btn { cursor: pointer; font: inherit; font-weight: 600; }

@@ -9,6 +9,11 @@
   <meta property="og:title" content="Abdul Rauf Qureshi | Visiting Card">
   <meta property="og:description" content="Senior IT Project Manager | Global Cloud, Infrastructure & Managed Services. Save my contact in one tap.">
   <meta property="og:type" content="profile">
+  <meta property="og:url" content="https://stingray-app-mof8k.ondigitalocean.app/card.html">
+  <meta property="og:image" content="https://stingray-app-mof8k.ondigitalocean.app/card/card-preview.png">
+  <meta property="og:image:width" content="1200">
+  <meta property="og:image:height" content="630">
+  <meta name="twitter:card" content="summary_large_image">
   <link rel="icon" href="mark.svg" type="image/svg+xml">
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
@@ -49,7 +54,22 @@
         <p class="lead">Save my details straight to your phone, or print the card. Scanning the QR code on the back brings you to this page.</p>
         <div class="hero-actions">
           <a class="btn primary" href="card/abdul-rauf-qureshi.vcf" download>Save contact</a>
+          <button class="btn ghost" type="button" id="share-btn">Share card</button>
           <a class="btn ghost" href="#" onclick="window.print(); return false;">Print card</a>
+        </div>
+        <div class="share-panel" id="share-panel" hidden>
+          <p class="share-label">Share my card</p>
+          <div class="share-link">
+            <input id="share-url" type="text" readonly aria-label="Card link">
+            <button class="btn primary" type="button" id="copy-btn">Copy link</button>
+          </div>
+          <div class="share-targets">
+            <a id="share-wa" target="_blank" rel="noopener">WhatsApp</a>
+            <a id="share-li" target="_blank" rel="noopener">LinkedIn</a>
+            <a id="share-mail">Email</a>
+            <button type="button" id="share-native" hidden>More options</button>
+          </div>
+          <p class="share-status" id="share-status" role="status" aria-live="polite"></p>
         </div>
       </div>
     </section>
@@ -62,6 +82,7 @@
             <img class="vc-mark" src="mark.svg" alt="" width="48" height="48">
             <span class="vc-web">qureshirauf.com</span>
           </div>
+          <img class="vc-photo" src="profile.webp" alt="Abdul Rauf Qureshi" width="720" height="720">
           <div class="vc-id">
             <h2 class="vc-name">Abdul Rauf Qureshi</h2>
             <p class="vc-title">Senior IT Project Manager</p>
@@ -108,6 +129,31 @@
   </footer>
 
   <script>document.getElementById('year').textContent = new Date().getFullYear();</script>
+  <script>
+    (function () {
+      var url = location.protocol.indexOf('http') === 0 ? location.origin + '/card.html' : 'https://qureshirauf.com/card.html';
+      var title = 'Abdul Rauf Qureshi | Visiting Card';
+      var text = 'Abdul Rauf Qureshi, PMP. Senior IT Project Manager, global cloud, infrastructure and managed services.';
+      var panel = document.getElementById('share-panel'), status = document.getElementById('share-status');
+      var input = document.getElementById('share-url');
+      input.value = url;
+      document.getElementById('share-wa').href = 'https://wa.me/?text=' + encodeURIComponent(text + ' ' + url);
+      document.getElementById('share-li').href = 'https://www.linkedin.com/sharing/share-offsite/?url=' + encodeURIComponent(url);
+      document.getElementById('share-mail').href = 'mailto:?subject=' + encodeURIComponent(title) + '&body=' + encodeURIComponent(text + String.fromCharCode(10, 10) + url);
+      document.getElementById('share-btn').addEventListener('click', function () { panel.hidden = !panel.hidden; });
+      var nat = document.getElementById('share-native');
+      if (navigator.share) {
+        nat.hidden = false;
+        nat.addEventListener('click', function () { navigator.share({ title: title, text: text, url: url }).catch(function () {}); });
+      }
+      document.getElementById('copy-btn').addEventListener('click', function () {
+        function done() { status.textContent = 'Link copied'; setTimeout(function () { status.textContent = ''; }, 2500); }
+        if (navigator.clipboard && window.isSecureContext) {
+          navigator.clipboard.writeText(url).then(done, function () { input.select(); document.execCommand('copy'); done(); });
+        } else { input.select(); document.execCommand('copy'); done(); }
+      });
+    })();
+  </script>
   <script>
     (function () {
       var header = document.querySelector('.nav'), btn = header.querySelector('.nav-toggle');
