@@ -616,3 +616,20 @@ button.btn { cursor: pointer; font: inherit; font-weight: 600; }
   .carousel-side { display: none; }
 }
 @media print { .carousel-side { display: none !important; } }
+
+/* Contact icons */
+.contact-badge {
+  display: grid; place-items: center; width: 56px; height: 56px; border-radius: 16px; margin-bottom: 14px;
+  background: linear-gradient(135deg, #16a6a8, #0a5f61); color: #fff;
+  box-shadow: 0 8px 20px rgba(15, 139, 141, .3);
+}
+.contact-badge svg { width: 28px; height: 28px; }
+.btn-with-icon { display: inline-flex; align-items: center; gap: 10px; }
+.btn-icon { width: 20px; height: 20px; flex: none; }
+.btn-icon.brand-li { color: #0a66c2; }
+.btn-icon.brand-card { color: var(--accent); }
+.btn-with-icon:hover .btn-icon.brand-card { color: inherit; }
+@media print { .contact-badge, .btn-icon { display: none !important; } }
+@media (prefers-color-scheme: dark) {
+  .btn.primary, .btn.primary:hover, .nav nav a.nav-cta, .nav nav a.nav-cta:hover { color: #062b2c; }
+}
