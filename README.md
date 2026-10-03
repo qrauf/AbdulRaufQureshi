@@ -2,6 +2,8 @@
 
 Static portfolio site (plain HTML/CSS, no build step), hosted on DigitalOcean App Platform.
 
+**Live:** https://stingray-app-mof8k.ondigitalocean.app/
+
 ## Local preview
 
 Open `index.html` in a browser.

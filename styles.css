@@ -311,6 +311,9 @@ p { margin: 0 0 1em; }
   .event-date { width: auto; display: inline-flex; gap: 6px; align-items: baseline; justify-self: start; padding: 6px 12px; }
   .event-date span { display: inline; font-size: 1.1rem; }
   .hero-photo { order: -1; width: 180px; height: 180px; justify-self: center; }
+  .hero-text { text-align: center; }
+  .hero-text .lead { margin-left: auto; margin-right: auto; }
+  .certs-row, .contact-line, .hero-text .hero-actions { justify-content: center; }
   .two-col, .cols, .skills-grid { grid-template-columns: 1fr; gap: 16px; }
   .cols { gap: 48px; }
   .timeline > li { grid-template-columns: 1fr; gap: 6px; }
@@ -391,4 +394,6 @@ p { margin: 0 0 1em; }
 /* Narrow phones: keep just the monogram so Blog, Events and Contact fit */
 @media (max-width: 420px) {
   .brand-text { display: none; }
+  .contact-line { flex-direction: column; align-items: center; gap: 2px; }
+  .contact-line span[aria-hidden] { display: none; }
 }
