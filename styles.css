@@ -597,3 +597,22 @@ button.btn { cursor: pointer; font: inherit; font-weight: 600; }
   .carousel-track { display: block; overflow: visible; height: auto !important; }
   .carousel-slide { padding: 0; }
 }
+
+/* Side arrows on the skills carousel */
+.carousel { position: relative; }
+.carousel-side {
+  position: absolute; top: 50%; z-index: 2; transform: translateY(-50%);
+  width: 46px; height: 46px; box-shadow: var(--shadow);
+  background: var(--surface);
+}
+.carousel-side.prev { left: -23px; }
+.carousel-side.next { right: -23px; }
+.carousel-side:hover { background: var(--accent); border-color: var(--accent); color: #fff; }
+@media (max-width: 1240px) {
+  .carousel-side.prev { left: -12px; }
+  .carousel-side.next { right: -12px; }
+}
+@media (max-width: 860px) {
+  .carousel-side { display: none; }
+}
+@media print { .carousel-side { display: none !important; } }
