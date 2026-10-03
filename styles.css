@@ -531,3 +531,69 @@ p { margin: 0 0 1em; }
 .share-targets button[hidden] { display: none; }
 .share-status { margin: 8px 0 0; min-height: 1.2em; font-size: .88rem; color: var(--accent); font-weight: 600; }
 button.btn { cursor: pointer; font: inherit; font-weight: 600; }
+
+/* Skills carousel */
+.skills-layout { display: grid; grid-template-columns: 280px minmax(0, 1fr); gap: 40px; align-items: start; }
+.skills-intro { position: sticky; top: 96px; }
+.skills-intro > p { color: var(--muted); margin-bottom: 20px; }
+.carousel-tabs { display: flex; flex-direction: column; gap: 6px; }
+.carousel-tabs button {
+  display: flex; align-items: center; gap: 12px; width: 100%; text-align: left;
+  font: inherit; font-weight: 600; font-size: .98rem; color: var(--muted);
+  background: none; border: 1px solid transparent; border-radius: 12px; padding: 12px 14px; cursor: pointer;
+  transition: background .15s, color .15s, border-color .15s;
+}
+.carousel-tabs button:hover { color: var(--text); background: var(--surface); }
+.carousel-tabs button[aria-selected="true"] { color: var(--accent); background: var(--surface); border-color: var(--border); box-shadow: var(--shadow); }
+.tab-num { font-size: .75rem; font-weight: 800; letter-spacing: .05em; color: var(--accent); opacity: .7; }
+.carousel-controls { display: flex; align-items: center; gap: 12px; margin-top: 20px; }
+.carousel-arrow {
+  display: grid; place-items: center; width: 42px; height: 42px; border-radius: 50%;
+  background: var(--surface); border: 1px solid var(--border); color: var(--text); cursor: pointer;
+  transition: border-color .15s, color .15s;
+}
+.carousel-arrow:hover { border-color: var(--accent); color: var(--accent); }
+.carousel-arrow svg { width: 18px; height: 18px; }
+.carousel-count { font-size: .9rem; color: var(--muted); min-width: 42px; text-align: center; }
+.carousel-count strong { color: var(--text); }
+
+.carousel { min-width: 0; }
+.carousel-track {
+  display: flex; align-items: flex-start; overflow-x: auto; overflow-y: hidden; scroll-snap-type: x mandatory; scroll-behavior: smooth;
+  transition: height .3s ease;
+  scrollbar-width: none; border-radius: var(--radius); outline-offset: 4px;
+}
+.carousel-track::-webkit-scrollbar { display: none; }
+.carousel-slide { flex: 0 0 100%; scroll-snap-align: start; padding: 2px 2px 12px; align-self: flex-start; }
+.carousel-slide .sub-title { margin-top: 0; }
+.carousel-slide .skill-grid { grid-template-columns: repeat(3, minmax(0, 1fr)); }
+.carousel-slide .tech-grid { grid-template-columns: repeat(3, minmax(0, 1fr)); }
+.carousel-dots { display: flex; justify-content: center; gap: 8px; margin-top: 8px; }
+.carousel-dots span { width: 8px; height: 8px; border-radius: 999px; background: var(--border); transition: width .2s, background .2s; }
+.carousel-dots span.active { width: 24px; background: var(--accent); }
+
+@media (max-width: 1080px) {
+  .carousel-slide .skill-grid, .carousel-slide .tech-grid { grid-template-columns: repeat(2, minmax(0, 1fr)); }
+}
+@media (max-width: 860px) {
+  .skills-layout { grid-template-columns: minmax(0, 1fr); gap: 20px; }
+  .skills-intro { position: static; }
+  .carousel-tabs { flex-direction: row; overflow-x: auto; scrollbar-width: none; margin: 0 -16px; padding: 2px 16px 6px; }
+  .carousel-tabs::-webkit-scrollbar { display: none; }
+  .carousel-tabs button { flex: none; width: auto; padding: 8px 14px; border-color: var(--border); border-radius: 999px; font-size: .9rem; }
+  .tab-num { display: none; }
+  .carousel-controls { margin-top: 12px; }
+}
+@media (max-width: 640px) {
+  .carousel-slide .skill-grid, .carousel-slide .tech-grid { grid-template-columns: minmax(0, 1fr); }
+}
+@media (prefers-reduced-motion: reduce) {
+  .carousel-track { scroll-behavior: auto; }
+}
+@media print {
+  .skills-layout { display: block; }
+  .skills-intro > p, .carousel-tabs, .carousel-controls, .carousel-dots { display: none !important; }
+  .skills-intro { position: static; }
+  .carousel-track { display: block; overflow: visible; height: auto !important; }
+  .carousel-slide { padding: 0; }
+}
