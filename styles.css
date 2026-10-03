@@ -633,3 +633,8 @@ button.btn { cursor: pointer; font: inherit; font-weight: 600; }
 @media (prefers-color-scheme: dark) {
   .btn.primary, .btn.primary:hover, .nav nav a.nav-cta, .nav nav a.nav-cta:hover { color: #062b2c; }
 }
+.icon-link { display: inline-flex; align-items: center; gap: 7px; }
+.link-icon { width: 16px; height: 16px; flex: none; }
+.link-icon.brand-gmail { color: #ea4335; }
+.link-icon.brand-li { color: #0a66c2; }
+@media print { .link-icon { display: none !important; } }
