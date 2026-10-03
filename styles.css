@@ -249,6 +249,29 @@ p { margin: 0 0 1em; }
 .post-points li { margin-bottom: 6px; }
 .post-points strong { color: var(--text); }
 
+/* Events */
+.events { display: grid; gap: 28px; }
+.event {
+  background: var(--surface); border: 1px solid var(--border);
+  border-radius: var(--radius); overflow: hidden; box-shadow: var(--shadow);
+}
+.event-cover { display: block; background: #0d4f55; }
+.event-cover img { display: block; width: 100%; height: auto; }
+.event-cover-logo {
+  display: grid; place-items: center; padding: 28px;
+  background: linear-gradient(135deg, #fbf4fb, #efe4f3);
+}
+.event-cover-logo img { width: auto; max-width: 220px; max-height: 130px; }
+.event-body { display: grid; grid-template-columns: auto 1fr; gap: 24px; padding: 24px; }
+.event-date {
+  width: 84px; text-align: center; border-radius: 12px; padding: 10px 6px;
+  background: var(--accent-soft); color: var(--accent);
+  font-size: .75rem; font-weight: 700; text-transform: uppercase; letter-spacing: .05em; align-self: start;
+}
+.event-date span { display: block; font-size: 1.5rem; font-weight: 800; letter-spacing: -.02em; line-height: 1.2; text-transform: none; }
+.event-body p:not(.post-meta) { color: var(--muted); }
+.event-tags { margin-top: 4px; }
+
 /* Contact */
 .contact { background: var(--accent-soft); text-align: center; }
 .contact-inner { display: flex; flex-direction: column; align-items: center; }
@@ -263,6 +286,9 @@ p { margin: 0 0 1em; }
   .stats { grid-template-columns: repeat(2, 1fr); }
   .hero-top { grid-template-columns: 1fr; gap: 32px; }
   .post { grid-template-columns: 1fr; gap: 20px; padding: 18px; }
+  .event-body { grid-template-columns: 1fr; gap: 14px; padding: 18px; }
+  .event-date { width: auto; display: inline-flex; gap: 6px; align-items: baseline; justify-self: start; padding: 6px 12px; }
+  .event-date span { display: inline; font-size: 1.1rem; }
   .hero-photo { order: -1; width: 180px; height: 180px; }
   .two-col, .cols, .skills-grid { grid-template-columns: 1fr; gap: 16px; }
   .cols { gap: 48px; }
@@ -339,4 +365,9 @@ p { margin: 0 0 1em; }
 @media (prefers-reduced-motion: reduce) {
   html { scroll-behavior: auto; }
   .card, .btn, .brand-mark, .post-cover img { transition: none; }
+}
+
+/* Narrow phones: keep just the monogram so Blog, Events and Contact fit */
+@media (max-width: 420px) {
+  .brand-text { display: none; }
 }
